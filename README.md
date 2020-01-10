@@ -1,7 +1,5 @@
 # Plot Map Tiles in Pyplot
 
-Plot map tiles in pyplot.
-
 I wrote this map tile plotter to create basic geo-spatial data visualizations for [powerplace.io](//powerplace.io).
 
 ## Usage
