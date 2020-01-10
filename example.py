@@ -2,7 +2,9 @@ import matplotlib.pyplot as plt
 from maptiles import MapboxMap
 import numpy as np
 
-access_token = "pk.eyJ1IjoicGxvbmVybWEiLCJhIjoiY2p1enc2N2dvMHlpNjRlbTJnNmZpa2xpMCJ9.oPRZeKoqdt_EVfKSsGqnuQ"
+
+# Specify valid mapbox api key
+access_token = "pk..."
 
 
 # Initialize plot
