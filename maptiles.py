@@ -1,6 +1,5 @@
 """https://wiki.openstreetmap.org/wiki/Slippy_map_tilenames#Python"""
 
-import math
 import numpy as np
 from skimage import io
 
@@ -46,15 +45,15 @@ class TileMap:
     def degree_from_index(self, tile):
         n = 2.0 ** tile.z
         lon_deg = tile.x / n * 360.0 - 180.0
-        lat_rad = math.atan(math.sinh(math.pi * (1 - 2 * tile.y / n)))
-        lat_deg = math.degrees(lat_rad)
+        lat_rad = np.arctan(np.sinh(np.pi * (1 - 2 * tile.y / n)))
+        lat_deg = np.degrees(lat_rad)
         return (lat_deg, lon_deg)
 
     def index_from_degree(self, lat_deg, lon_deg, zoom):
-        lat_rad = math.radians(lat_deg)
+        lat_rad = np.radians(lat_deg)
         n = 2.0 ** zoom
         xtile = int((lon_deg + 180.0) / 360.0 * n)
-        ytile = int((1.0 - math.log(math.tan(lat_rad) + (1 / math.cos(lat_rad))) / math.pi) / 2.0 * n)
+        ytile = int((1.0 - np.log(np.tan(lat_rad) + (1 / np.cos(lat_rad))) / np.pi) / 2.0 * n)
         return Tile(zoom, xtile, ytile)
 
     def project(self, point, inverse=False):
